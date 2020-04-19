@@ -11,19 +11,25 @@ function renderCart() {
     c.render($toolbar);
 }
 
-function renderProducts() {
+function renderProduct() {
     const $products = document.querySelector('.products');
+    const p = new Product();
+    p.render($products);
+    p.onClickAdd(() => {
+        console.log('product was add to cart');
+    });
+}
 
+function renderProductList() {
     const products = Array.from({ length: 3 });
-    products.forEach(el => {
-        const p = new Product();
-        return p.render($products);
+    products.forEach(() => {
+        renderProduct();
     });
 }
 
 function main() {
     renderCart();
-    renderProducts();
+    renderProductList();
 }
 
 main();
