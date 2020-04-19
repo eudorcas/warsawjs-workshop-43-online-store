@@ -5,13 +5,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 console.log('hello');
 
-function main() {
+function renderCart() {
     const $toolbar = document.querySelector('.toolbar');
-    const $products = document.querySelector('.products');
     const c = new Cart();
     c.render($toolbar);
-    const p = new Product();
-    p.render($products);
+}
+
+function renderProducts() {
+    const $products = document.querySelector('.products');
+
+    const products = Array.from({ length: 3 });
+    products.forEach(el => {
+        const p = new Product();
+        return p.render($products);
+    });
+}
+
+function main() {
+    renderCart();
+    renderProducts();
 }
 
 main();

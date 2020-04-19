@@ -14,4 +14,8 @@ export class Product extends Component {
         </div>
     </div>`;
     }
+
+    onClickAdd(cb) {
+        this.$el.querySelector('button').addEventListener('click', cb);
+    }
 }

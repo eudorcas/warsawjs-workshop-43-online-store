@@ -1,4 +1,5 @@
 import { Component } from '../components/component';
+import { Product } from '../components/product';
 
 export class Cart extends Component {
     constructor() {
@@ -14,6 +15,13 @@ export class Cart extends Component {
     }
 
     addProduct(product) {
-        this.list.push(product);
+        return new Promise((resolve, reject) => {
+            if (product instanceof Product) {
+                this.list.push(product);
+                resolve(this.list.length);
+            } else {
+                reject(this.list.length);
+            }
+        });
     }
 }
